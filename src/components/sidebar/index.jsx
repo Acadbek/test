@@ -26,7 +26,7 @@ const items = [
     'g1',
     <HomeOutlined />,
     [
-      getItem('Asosiy sahifa', '', <HomeOutlined />),
+      getItem('Asosiy sahifa', '/home', <HomeOutlined />),
       getItem('Foydalanuvchilar', '/users', <UserSwitchOutlined />),
       getItem('Qidiruv sahifasi', '/findUsers', <SearchOutlined />),
       getItem('Login', '/login', <LoginOutlined />),
@@ -56,7 +56,7 @@ const Sidebar = () => {
   };
   return (
     <Container>
-      <Link to='/'>
+      <Link to='/home'>
         <Logo className='logo' src='/logo.svg' alt='Logo' />
       </Link>
       <Menu
