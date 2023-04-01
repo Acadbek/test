@@ -1,16 +1,18 @@
 import { Link, Navigate, Route, Routes } from 'react-router-dom';
 import { ProductContext } from './context/controls';
-import { useContext, useState } from 'react';
+import { Fragment, Suspense, useContext, useState } from 'react';
+import { sidebar } from './utils/sidebar';
 import Home from './pages/home';
 import Login from './pages/Login';
 import Navbar from './components/navbar';
 import Sidebar from './components/sidebar';
-import viteLogo from '/vite.svg';
-import NotFound from './pages/404';
-import reactLogo from './assets/react.svg';
 import FindUser from './pages/FindUser';
+import NotFound from './pages/404';
+import viteLogo from '/vite.svg';
+import reactLogo from './assets/react.svg';
 
 function App() {
+  console.log(sidebar);
   const { login, value } = useContext(ProductContext);
   const handleLogin = () => {
     const data = {
@@ -28,10 +30,9 @@ function App() {
         <Sidebar />
         <div className='container'>
           <Routes>
-            <Route path='/users' element={<h1>Users</h1>} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/findUsers' element={<FindUser />} />
+            {sidebar.map(({ path, element, id }) => (
+              <Route key={id} path={path} element={element} />
+            ))}
             <Route path='*' element={<NotFound />} />
             <Route path='/' element={<Navigate to={'/home'} />} />
           </Routes>
