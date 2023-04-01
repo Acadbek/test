@@ -1,11 +1,14 @@
-import viteLogo from '/vite.svg';
-import Login from './pages/Login';
-import reactLogo from './assets/react.svg';
-import { useContext, useState } from 'react';
-import { ProductContext } from './context/controls';
 import { Link, Navigate, Route, Routes } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
-import Home from './pages/Home';
+import { ProductContext } from './context/controls';
+import { useContext, useState } from 'react';
+import Home from './pages/home';
+import Login from './pages/Login';
+import Navbar from './components/navbar';
+import Sidebar from './components/sidebar';
+import viteLogo from '/vite.svg';
+import NotFound from './pages/404';
+import reactLogo from './assets/react.svg';
+import FindUser from './pages/FindUser';
 
 function App() {
   const { login, value } = useContext(ProductContext);
@@ -19,19 +22,22 @@ function App() {
   };
 
   return (
-    <div className='app'>
-      <Link to='/'>
-        <img className='logo' src='/logo.svg' alt='Logo' />
-      </Link>
-      <Sidebar />
-      <Routes>
-        <Route path='/users' element={<h1>Users</h1>} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='*' element={<h1>404 NOT FOUND</h1>} />
-        <Route path='/' element={<Navigate to={'/home'} />} />
-      </Routes>
-    </div>
+    <>
+      <Navbar />
+      <main className='main-wrapper'>
+        <Sidebar />
+        <div className='container'>
+          <Routes>
+            <Route path='/users' element={<h1>Users</h1>} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/findUsers' element={<FindUser />} />
+            <Route path='*' element={<NotFound />} />
+            <Route path='/' element={<Navigate to={'/home'} />} />
+          </Routes>
+        </div>
+      </main>
+    </>
   );
 }
 

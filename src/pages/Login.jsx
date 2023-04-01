@@ -15,24 +15,6 @@ const Login = () => {
   return (
     <div>
       <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
-      <h1>Login page</h1>
       <form onSubmit={submit}>
         <input ref={_username} type='text' placeholder='username' />
         <input ref={_password} type='password' placeholder='password' />
