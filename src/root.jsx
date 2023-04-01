@@ -1,19 +1,19 @@
+import { useContext, useState } from 'react';
 import { Link, Navigate, Route, Routes } from 'react-router-dom';
 import { ProductContext } from './context/controls';
-import { Fragment, Suspense, useContext, useState } from 'react';
 import { sidebar } from './utils/sidebar';
 import Home from './pages/home';
 import Login from './pages/Login';
 import Navbar from './components/navbar';
 import Sidebar from './components/sidebar';
-import FindUser from './pages/FindUser';
+import FindUser from './pages/FindProducts';
 import NotFound from './pages/404';
 import viteLogo from '/vite.svg';
 import reactLogo from './assets/react.svg';
 
 function App() {
   console.log(sidebar);
-  const { login, value } = useContext(ProductContext);
+  const { login } = useContext(ProductContext);
   const handleLogin = () => {
     const data = {
       _username: 'user_task',

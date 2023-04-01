@@ -1,18 +1,24 @@
-import styled from 'styled-components';
-
-export const Container = styled('div')`
+.container {
   height: 100%;
   width: 160px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-`;
+}
 
-export const Logo = styled('img')`
+.logo {
   position: absolute;
   z-index: 2;
   left: 20px;
-  top: 10px;
+  top: 14px;
   width: 100px;
-`;
+}
+
+.sidebar {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 30px;
+}

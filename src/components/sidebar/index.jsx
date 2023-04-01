@@ -9,8 +9,7 @@ import {
 } from '@ant-design/icons';
 import { Menu } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
-import { Container } from './styles';
-import { Logo } from './styles';
+import './styles.css';
 function getItem(label, key, icon, children, type) {
   return {
     key,
@@ -27,8 +26,8 @@ const items = [
     <HomeOutlined />,
     [
       getItem('Asosiy sahifa', '/home', <HomeOutlined />),
-      getItem('Foydalanuvchilar', '/users', <UserSwitchOutlined />),
-      getItem('Qidiruv sahifasi', '/findUsers', <SearchOutlined />),
+      getItem('Mahsulotlar', '/products', <UserSwitchOutlined />),
+      getItem('Qidiruv sahifasi', '/find-products', <SearchOutlined />),
       getItem('Login', '/login', <LoginOutlined />),
     ],
     'group'
@@ -55,9 +54,9 @@ const Sidebar = () => {
     navigate(e.keyPath[0]);
   };
   return (
-    <Container>
+    <>
       <Link to='/home'>
-        <Logo className='logo' src='/logo.svg' alt='Logo' />
+        <img className='logo' src='/logo.svg' alt='Logo' />
       </Link>
       <Menu
         className='sidebar'
@@ -70,7 +69,7 @@ const Sidebar = () => {
         mode='inline'
         items={items}
       />
-    </Container>
+    </>
   );
 };
 export default Sidebar;

@@ -4,8 +4,8 @@ import { ProductContext } from '../context/controls';
 
 const Login = () => {
   const { login } = useContext(ProductContext);
-  const _username = useRef('asas');
-  const _password = useRef('asdasda');
+  const _username = useRef('user_task');
+  const _password = useRef('user_task');
 
   const submit = (e) => {
     e.preventDefault();
@@ -16,8 +16,18 @@ const Login = () => {
     <div>
       <h1>Login page</h1>
       <form onSubmit={submit}>
-        <input ref={_username} type='text' placeholder='username' />
-        <input ref={_password} type='password' placeholder='password' />
+        <input
+          defaultValue={'user_task'}
+          ref={_username}
+          type='text'
+          placeholder='username'
+        />
+        <input
+          defaultValue={'user_task'}
+          ref={_password}
+          type='password'
+          placeholder='password'
+        />
         <button type='submit'>submit</button>
       </form>
     </div>

@@ -1,9 +1,8 @@
 import React from 'react';
-import { Container } from './styles';
 
 const Home = () => {
   return (
-    <Container className='main'>
+    <div className='main'>
       Home
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
@@ -222,7 +221,7 @@ const Home = () => {
         laudantium rerum placeat in consequatur sed earum! Nam quam nemo
         exercitationem sapiente placeat.
       </p>
-    </Container>
+    </div>
   );
 };
 

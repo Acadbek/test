@@ -1,16 +1,25 @@
+import { getItem } from '../helpers/storage-actions';
 import axios from './axios';
 
 const ProductService = {
   login(_username, _password, _subdomain = 'toko') {
-    console.log({ _username, _password, _subdomain });
-    // return axios({
-    //   method: 'POST',
-    //   url: 'https://toko.ox-sys.com/security/auth_check',
-    //   data: data,
-    //   headers: {
-    //     'Content-Type': 'application/x-www-form-urlencoded',
-    //   },
-    // });
+    return axios({
+      method: 'POST',
+      url: 'https://toko.ox-sys.com/security/auth_check',
+      data: { _username, _password, _subdomain },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    });
+  },
+  getData() {
+    return axios({
+      method: 'GET',
+      url: 'https://toko.ox-sys.com/variations',
+      headers: {
+        Authorization: `Bearer ${getItem('token')}`,
+      },
+    });
   },
 };
 

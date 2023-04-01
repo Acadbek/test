@@ -6,8 +6,15 @@ export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
   const login = async (_username, _password) => {
-    await ProductService.login(_username, _password);
+    const response = await ProductService.login(_username, _password);
+    setItem('token', response.data.token);
   };
+
+  const getData = async () => {
+    const response = await ProductService.getData();
+    return response;
+  };
+
   const changeSidebarStatus = (bool) => {
     let b = bool;
     if (b === true) {
@@ -19,7 +26,7 @@ const ProductProvider = ({ children }) => {
     console.log(bool);
   };
   return (
-    <ProductContext.Provider value={{ login, changeSidebarStatus }}>
+    <ProductContext.Provider value={{ login, getData, changeSidebarStatus }}>
       {children}
     </ProductContext.Provider>
   );

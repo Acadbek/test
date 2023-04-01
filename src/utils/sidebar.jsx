@@ -1,7 +1,7 @@
 import React from 'react';
 const Home = React.lazy(() => import('../pages/home'));
-const Users = React.lazy(() => import('../pages/users'));
-const FindUser = React.lazy(() => import('../pages/FindUser'));
+const Users = React.lazy(() => import('../pages/products'));
+const FindProducts = React.lazy(() => import('../pages/FindProducts'));
 const Login = React.lazy(() => import('../pages/Login'));
 import useUniqueId from '../hooks/useId';
 
@@ -21,31 +21,31 @@ export const sidebar = [
   {
     id: useUniqueId,
     element: (
-      <React.Suspense fallback={<h1>Loding......</h1>}>
+      <React.Suspense fallback={<h1>Loading......</h1>}>
         <Users />
       </React.Suspense>
     ),
     title: 'Users',
-    path: '/users',
+    path: '/products',
     private: false,
     hidden: false,
   },
   {
     id: useUniqueId,
     element: (
-      <React.Suspense fallback={<h1>Loding......</h1>}>
-        <FindUser />
+      <React.Suspense fallback={<h1>Loading......</h1>}>
+        <FindProducts />
       </React.Suspense>
     ),
     title: 'Properties',
-    path: '/findUsers',
+    path: '/find-products',
     private: false,
     hidden: false,
   },
   {
     id: useUniqueId,
     element: (
-      <React.Suspense fallback={<h1>Loding......</h1>}>
+      <React.Suspense fallback={<h1>Loading......</h1>}>
         <Login />
       </React.Suspense>
     ),
