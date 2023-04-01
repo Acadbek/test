@@ -27,7 +27,7 @@ export const sidebar = [
     ),
     title: 'Users',
     path: '/products',
-    private: false,
+    private: true,
     hidden: false,
   },
   {

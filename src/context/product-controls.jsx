@@ -1,32 +1,30 @@
-import { createContext } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { setItem } from '../helpers/storage-actions';
 import ProductService from '../services/product-actions';
 
 export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
+  const [products, setProducts] = useState([]);
+
+  // login
   const login = async (_username, _password) => {
     const response = await ProductService.login(_username, _password);
     setItem('token', response.data.token);
   };
 
-  const getData = async () => {
+  // get all products
+  const getAllProducts = async () => {
     const response = await ProductService.getData();
-    return response;
+    response.status === 200 && setProducts(response?.data);
   };
 
-  const changeSidebarStatus = (bool) => {
-    let b = bool;
-    if (b === true) {
-      return false;
-    }
-    if (b === false) {
-      return true;
-    }
-    console.log(bool);
-  };
+  useEffect(() => {
+    getAllProducts();
+  }, []);
+
   return (
-    <ProductContext.Provider value={{ login, getData, changeSidebarStatus }}>
+    <ProductContext.Provider value={{ login, products }}>
       {children}
     </ProductContext.Provider>
   );
