@@ -1,0 +1,20 @@
+.card {
+  background-color: rgb(227 245 255/1);
+  padding: 24px;
+  border-radius: 24px;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+.card-name::first-letter {
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  line-height: 2.25rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
+}

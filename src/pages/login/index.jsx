@@ -1,19 +1,16 @@
-import { useRef, useState } from 'react';
 import { useContext } from 'react';
 import { ProductContext } from '../../context/product-controls';
-import { getItem } from '../../helpers/storage-actions';
-import { Button, Checkbox, Form, Input, message, Space } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import './styles.css';
 
 const Login = () => {
   const [messageApi, contextHolder] = message.useMessage();
-  const { login, errors } = useContext(ProductContext);
-  const token = getItem('token');
+  const { login } = useContext(ProductContext);
 
   const success = () => {
     messageApi.open({
       type: 'success',
-      content: "Tabriklaymiz siz muvaffaqiyatli ro'yhatdan o'tdingiz!",
+      content: "Tabriklaymiz, siz muvaffaqiyatli ro'yhatdan o'tdingiz!",
     });
   };
 
@@ -26,15 +23,12 @@ const Login = () => {
 
   const onFinish = async (e) => {
     login(e.username, e.password);
-    if (e.username === 'user_task' && e.password === 'user_task') {
-      success();
-    } else {
-      error();
-    }
+    if (e.username === 'user_task' && e.password === 'user_task') success();
+    else error();
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    return;
   };
 
   return (
