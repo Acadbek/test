@@ -3,6 +3,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 import { ProductContext } from '../../context/product-controls';
 import Card from '../../components/statistics-card';
 import './styles.css';
+import { getItem } from '../../helpers/storage-actions';
 
 const Home = () => {
   const { products } = useContext(ProductContext);
@@ -10,9 +11,10 @@ const Home = () => {
   const randomNum = () => products?.items && Math.floor(Math.random() * 4);
   const dataForChart = () =>
     products?.items && products?.items?.slice(1, randomNum() * 10);
-
+  const token = getItem('token');
   return (
     <div className='main'>
+      {token ? '' : <h2>Birinchi login qilib keyin qaytib keling</h2>}
       <div className='cards'>
         {products?.items?.slice(randomNum(), 4).map(({ id, name }) => (
           <Card

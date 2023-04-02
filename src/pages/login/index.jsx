@@ -22,11 +22,12 @@ const Login = () => {
   };
 
   const onFinish = async (e) => {
-    await login(e.username, e.password).then(() => {
-      window.location.reload();
-    });
-    if (e.username === 'user_task' && e.password === 'user_task') success();
-    else error();
+    if (e.username === 'user_task' && e.password === 'user_task') {
+      success();
+      await login(e.username, e.password).then(() => {
+        window.location.reload();
+      });
+    } else error();
   };
 
   const onFinishFailed = (errorInfo) => {
