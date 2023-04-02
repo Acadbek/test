@@ -1,0 +1,16 @@
+.main-login {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(75%, -50%);
+}
+
+.login-title {
+  display: flex;
+  justify-content: center;
+  margin-right: 200px;
+  font-size: 34px;
+  color: #3376a9;
+  margin-top: 40px;
+}

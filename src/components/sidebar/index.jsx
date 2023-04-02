@@ -10,6 +10,8 @@ import {
 import { Menu } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import './styles.css';
+import { getItem as getToken } from '../../helpers/storage-actions';
+
 function getItem(label, key, icon, children, type) {
   return {
     key,
@@ -19,6 +21,9 @@ function getItem(label, key, icon, children, type) {
     type,
   };
 }
+
+const token = getToken('token');
+
 const items = [
   getItem(
     '',
@@ -26,26 +31,13 @@ const items = [
     <HomeOutlined />,
     [
       getItem('Asosiy sahifa', '/home', <HomeOutlined />),
-      getItem('Mahsulotlar', '/products', <UserSwitchOutlined />),
-      getItem('Qidiruv sahifasi', '/find-products', <SearchOutlined />),
+      token && getItem('Mahsulotlar', '/products', <UserSwitchOutlined />),
+      token &&
+        getItem('Qidiruv sahifasi', '/find-products', <SearchOutlined />),
       getItem('Login', '/login', <LoginOutlined />),
     ],
     'group'
   ),
-  getItem(
-    '',
-    'g2',
-    null,
-    [getItem('Users', 'asd'), getItem('Option 4', '4')],
-    'group'
-  ),
-  getItem('Dependency', 'sub2', <AppstoreOutlined />, [
-    getItem('Option 5', '5'),
-    getItem('Option 6', '6'),
-  ]),
-  {
-    type: 'divider',
-  },
 ];
 const Sidebar = () => {
   const navigate = useNavigate();

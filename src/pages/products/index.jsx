@@ -8,7 +8,7 @@ const Products = () => {
   // I added a key for each product here, because
   // Table does not accept id, but only key
   // --------------------
-  //  Added 'No description' to products with empty description
+  //  Added 'No description' text to each product with empty description
 
   products?.items?.forEach((item, idx) => {
     item.key = idx;
@@ -16,11 +16,7 @@ const Products = () => {
       item.description === '' ? 'No description' : item.description;
   });
 
-  return (
-    <>
-      <Table data={products?.items} />
-    </>
-  );
+  return <Table data={products?.items} />;
 };
 
 export default Products;

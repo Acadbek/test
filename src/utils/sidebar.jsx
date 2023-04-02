@@ -1,17 +1,19 @@
-import React from 'react';
-const Home = React.lazy(() => import('../pages/home'));
-const Users = React.lazy(() => import('../pages/products'));
-const FindProducts = React.lazy(() => import('../pages/FindProducts'));
-const Login = React.lazy(() => import('../pages/Login'));
+import { Suspense, lazy } from 'react';
 import useUniqueId from '../hooks/useId';
+
+const Home = lazy(() => import('../pages/home'));
+const Login = lazy(() => import('../pages/login'));
+const Products = lazy(() => import('../pages/products'));
+const FindProducts = lazy(() => import('../pages/find-product'));
+const Loader = lazy(() => import('../components/loader'));
 
 export const sidebar = [
   {
     id: useUniqueId,
     element: (
-      <React.Suspense fallback={<h1>Loading..........</h1>}>
+      <Suspense fallback={<Loader />}>
         <Home />
-      </React.Suspense>
+      </Suspense>
     ),
     title: 'Home',
     path: '/home',
@@ -21,11 +23,11 @@ export const sidebar = [
   {
     id: useUniqueId,
     element: (
-      <React.Suspense fallback={<h1>Loading......</h1>}>
-        <Users />
-      </React.Suspense>
+      <Suspense fallback={<Loader />}>
+        <Products />
+      </Suspense>
     ),
-    title: 'Users',
+    title: 'Products',
     path: '/products',
     private: true,
     hidden: false,
@@ -33,23 +35,23 @@ export const sidebar = [
   {
     id: useUniqueId,
     element: (
-      <React.Suspense fallback={<h1>Loading......</h1>}>
+      <Suspense fallback={<Loader />}>
         <FindProducts />
-      </React.Suspense>
+      </Suspense>
     ),
-    title: 'Properties',
+    title: 'Find Products',
     path: '/find-products',
-    private: false,
+    private: true,
     hidden: false,
   },
   {
     id: useUniqueId,
     element: (
-      <React.Suspense fallback={<h1>Loading......</h1>}>
+      <Suspense fallback={<Loader />}>
         <Login />
-      </React.Suspense>
+      </Suspense>
     ),
-    title: 'Properties',
+    title: 'Login',
     path: '/login',
     private: false,
     hidden: false,

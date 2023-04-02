@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -9,7 +10,6 @@ body {
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --border: #1c1c1c1a solid 1px;
 }
 
@@ -19,6 +19,7 @@ body {
   margin: 0 auto;
   margin-left: 280px;
   margin-top: 80px;
+  padding-right: 20px;
 }
 
 .main-wrapper {

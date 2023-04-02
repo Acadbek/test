@@ -1,0 +1,58 @@
+  <svg
+      xmlns='http://www.w3.org/2000/svg'
+      xmlnsXlink='http://www.w3.org/1999/xlink'
+      style='margin: auto; display: block;'
+      width='120px'
+      height='120px'
+      viewBox='0 0 100 100'
+      preserveAspectRatio='xMidYMid'
+    >
+      <circle cx='29' cy='57.5' r='5' fill='#689cc5'>
+        <animate
+          attributeName='cy'
+          calcMode='spline'
+          keySplines='0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5'
+          repeatCount='indefinite'
+          values='57.5;42.5;57.5;57.5'
+          keyTimes='0;0.225;0.45;1'
+          dur='0.8474576271186441s'
+          begin='-0.38135593220338987s'
+        ></animate>
+      </circle>{' '}
+      <circle cx='43' cy='57.5' r='5' fill='#689cc5'>
+        <animate
+          attributeName='cy'
+          calcMode='spline'
+          keySplines='0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5'
+          repeatCount='indefinite'
+          values='57.5;42.5;57.5;57.5'
+          keyTimes='0;0.225;0.45;1'
+          dur='0.8474576271186441s'
+          begin='-0.2860169491525424s'
+        ></animate>
+      </circle>{' '}
+      <circle cx='57' cy='57.5' r='5' fill='#689cc5'>
+        <animate
+          attributeName='cy'
+          calcMode='spline'
+          keySplines='0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5'
+          repeatCount='indefinite'
+          values='57.5;42.5;57.5;57.5'
+          keyTimes='0;0.225;0.45;1'
+          dur='0.8474576271186441s'
+          begin='-0.19067796610169493s'
+        ></animate>
+      </circle>{' '}
+      <circle cx='71' cy='57.5' r='5' fill='#689cc5'>
+        <animate
+          attributeName='cy'
+          calcMode='spline'
+          keySplines='0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5'
+          repeatCount='indefinite'
+          values='57.5;42.5;57.5;57.5'
+          keyTimes='0;0.225;0.45;1'
+          dur='0.8474576271186441s'
+          begin='-0.09533898305084747s'
+        ></animate>
+      </circle>
+    </svg>

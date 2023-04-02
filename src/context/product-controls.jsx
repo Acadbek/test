@@ -6,17 +6,27 @@ export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [errors, serError] = useState('');
 
   // login
   const login = async (_username, _password) => {
-    const response = await ProductService.login(_username, _password);
-    setItem('token', response.data.token);
+    try {
+      const response = await ProductService.login(_username, _password);
+      response?.data?.token && setItem('token', response?.data?.token);
+    } catch (error) {
+      console.log(error);
+      serError(error);
+    }
   };
 
   // get all products
   const getAllProducts = async () => {
-    const response = await ProductService.getData();
-    response.status === 200 && setProducts(response?.data);
+    try {
+      const response = await ProductService.getData();
+      response.status === 200 && setProducts(response?.data);
+    } catch (error) {
+      alert(error);
+    }
   };
 
   useEffect(() => {
@@ -24,7 +34,7 @@ const ProductProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={{ login, products }}>
+    <ProductContext.Provider value={{ login, products, errors }}>
       {children}
     </ProductContext.Provider>
   );
