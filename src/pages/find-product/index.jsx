@@ -22,9 +22,17 @@ const Products = () => {
       item.description === '' ? 'No description' : item.description;
   });
 
+  const sortWithAlphabet = (data) => {
+    return data.sort(function (a, b) {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    });
+  };
   const onSearch = (value) => {
-    const filteredData = products?.items.filter(({ productName }) =>
-      productName?.toLowerCase().includes(value?.toLowerCase())
+    const filteredData = sortWithAlphabet(products?.items).filter(
+      ({ productName }) =>
+        productName?.toLowerCase().includes(value?.toLowerCase())
     );
     setData(filteredData);
   };

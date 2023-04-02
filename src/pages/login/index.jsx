@@ -22,7 +22,9 @@ const Login = () => {
   };
 
   const onFinish = async (e) => {
-    login(e.username, e.password);
+    await login(e.username, e.password).then(() => {
+      window.location.reload();
+    });
     if (e.username === 'user_task' && e.password === 'user_task') success();
     else error();
   };
@@ -88,7 +90,7 @@ const Login = () => {
             }}
           >
             <Button type='primary' htmlType='submit'>
-              Login
+              Kirish
             </Button>
           </Form.Item>
         </Form>

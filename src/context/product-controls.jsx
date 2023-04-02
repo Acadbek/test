@@ -14,7 +14,6 @@ const ProductProvider = ({ children }) => {
       const response = await ProductService.login(_username, _password);
       response?.data?.token && setItem('token', response?.data?.token);
     } catch (error) {
-      console.log(error);
       serError(error);
     }
   };

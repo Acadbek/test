@@ -11,6 +11,7 @@ import { Menu } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import './styles.css';
 import { getItem as getToken } from '../../helpers/storage-actions';
+import { useState } from 'react';
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -22,25 +23,25 @@ function getItem(label, key, icon, children, type) {
   };
 }
 
-const token = getToken('token');
-
-const items = [
-  getItem(
-    '',
-    'g1',
-    <HomeOutlined />,
-    [
-      getItem('Asosiy sahifa', '/home', <HomeOutlined />),
-      token && getItem('Mahsulotlar', '/products', <UserSwitchOutlined />),
-      token &&
-        getItem('Qidiruv sahifasi', '/find-products', <SearchOutlined />),
-      getItem('Login', '/login', <LoginOutlined />),
-    ],
-    'group'
-  ),
-];
 const Sidebar = () => {
+  const token = getToken('token');
+  const [jwt, setJwt] = useState(token);
   const navigate = useNavigate();
+  const items = [
+    getItem(
+      '',
+      'g1',
+      <HomeOutlined />,
+      [
+        getItem('Asosiy sahifa', '/home', <HomeOutlined />),
+        jwt && getItem('Mahsulotlar', '/products', <UserSwitchOutlined />),
+        jwt &&
+          getItem('Qidiruv sahifasi', '/find-products', <SearchOutlined />),
+        getItem('Login', '/login', <LoginOutlined />),
+      ],
+      'group'
+    ),
+  ];
 
   const onClick = (e) => {
     navigate(e.keyPath[0]);
