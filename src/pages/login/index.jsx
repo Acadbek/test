@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className='login-container'>
       <div className='login-title'>
         <h4>Login</h4>
       </div>
@@ -72,7 +72,7 @@ const Login = () => {
               },
             ]}
           >
-            <Input />
+            <Input className='username-input' />
           </Form.Item>
 
           <Form.Item
@@ -85,21 +85,21 @@ const Login = () => {
               },
             ]}
           >
-            <Input.Password />
+            <Input.Password className='password-input' />
           </Form.Item>
           <Form.Item
             wrapperCol={{
-              offset: 21,
+              offset: 16,
               span: 0,
             }}
           >
             <Button type='primary' htmlType='submit'>
-              Submit
+              Login
             </Button>
           </Form.Item>
         </Form>
       </div>
-    </>
+    </div>
   );
 };
 

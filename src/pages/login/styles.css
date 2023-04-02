@@ -1,12 +1,21 @@
+.login-container {
+  overflow: hidden !important;
+}
+
 .main-login {
-  width: 100%;
   position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(75%, -50%);
+  top: 0%;
+  right: 0%;
+  transform: translate(-95%, 120%);
+}
+
+.username-input,
+.password-input {
+  width: 450px !important;
 }
 
 .login-title {
+  overflow: hidden !important;
   display: flex;
   justify-content: center;
   margin-right: 200px;
