@@ -23,7 +23,7 @@ const Products = () => {
   });
 
   const sortWithAlphabet = (data) => {
-    return data.sort(function (a, b) {
+    return data.sort((a, b) => {
       if (a.name < b.name) return -1;
       if (a.name > b.name) return 1;
       return 0;
